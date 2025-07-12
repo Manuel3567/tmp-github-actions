@@ -3,7 +3,7 @@ name: Deploy Lambda to AWS
 on:
   push:
     branches:
-      - master  # or your deployment branch
+      - main  # or your deployment branch
 
 permissions:
   id-token: write  # Required for OIDC
@@ -27,7 +27,7 @@ jobs:
 
           if [[ "$BRANCH_NAME" == "dev" ]]; then
             ENVIRONMENT="dev"
-          elif [[ "$BRANCH_NAME" == "master" ]]; then
+          elif [[ "$BRANCH_NAME" == "main" ]]; then
             ENVIRONMENT="prod"
           else
             ENVIRONMENT="$BRANCH_NAME"
